@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main (void)
+{
+	char v[10];
+	int i;
+	FILE *fp;
+	
+	fp = fopen("arquivo", "r");
+	if (!fp) {
+		
+		printf("Erro na abertura do Arquivo\n");
+		exit(0);
+	}
+	
+	i = 0;
+
+	while (getc(fp) != EOF) {
+		if (getc(fp) != '\n' && getc(fp) != ' ') {
+			v[i] = getc(fp);
+			printf("%c\n", v[i]);
+			i++;
+		}
+	}
+	
+	
+	return 0;
+}	
+	
